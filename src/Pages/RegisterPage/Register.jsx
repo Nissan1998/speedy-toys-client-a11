@@ -28,8 +28,8 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    if (password.length < 6) {
-      return setError("PassWord must have 6 letter");
+    if (password.length < 8) {
+      return setError("PassWord must have 8 letter");
     }
 
     console.log(name, photoUrl, email, password);
@@ -77,6 +77,11 @@ const Register = () => {
               <h2 className="text-2xl mb-4 text-center font-bold">
                 Please Register !
               </h2>
+              {error && (
+                <p className="text-center font-bold text-red-600">
+                  Warning:- {error}
+                </p>
+              )}
               <div className="mb-4">
                 <label
                   className="block text-gray-700 text-sm font-bold mb-2"
@@ -88,8 +93,8 @@ const Register = () => {
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   type="text"
                   id="name"
-                  required
                   name="name"
+                  required
                   placeholder="Enter your Name"
                 />
               </div>

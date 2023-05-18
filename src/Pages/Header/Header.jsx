@@ -138,6 +138,15 @@ const Header = ({ bgImage }) => {
           </ul>
         </div>
         <div className="navbar-end">
+          <div className="me-8">
+            {user && (
+              <img
+                title={user?.displayName}
+                className="btn-circle"
+                src={user?.photoURL}
+              />
+            )}
+          </div>
           {user && (
             <Link
               onClick={handleLogOut}
