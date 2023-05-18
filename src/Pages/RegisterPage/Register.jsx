@@ -29,7 +29,7 @@ const Register = () => {
     const password = form.password.value;
 
     if (password.length < 8) {
-      return setError("PassWord must have 8 letter");
+      return setError("PassWord must have 8 letters");
     }
 
     console.log(name, photoUrl, email, password);
@@ -44,7 +44,9 @@ const Register = () => {
       })
       .catch((error) => {
         console.log(error);
-        setError(error.message);
+        if (error.message) {
+          setError("The User Already Exist");
+        }
         setSuccess("");
       });
   };

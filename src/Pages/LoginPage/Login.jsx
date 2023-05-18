@@ -46,6 +46,12 @@ const Login = () => {
       .catch((error) => {
         console.log(error);
         setError(error.message);
+        if (error.message == "Firebase: Error (auth/user-not-found).") {
+          setError("The User is Not Exist");
+        }
+        if (error.message) {
+          setError("The password you given that is Wrong");
+        }
       });
   };
   return (
@@ -62,6 +68,11 @@ const Login = () => {
             >
               <h2 className="text-2xl mb-4 text-center font-bold">Login</h2>
               <div className="mb-4">
+                {error && (
+                  <p className="text-center font-bold text-red-600">
+                    Warning:- {error}
+                  </p>
+                )}
                 <label
                   className="block text-gray-700 text-sm font-bold mb-2"
                   htmlFor="email"
