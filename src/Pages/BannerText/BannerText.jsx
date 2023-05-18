@@ -2,7 +2,7 @@ import React from "react";
 
 const BannerText = () => {
   return (
-    <div>
+    <div className=" pb-10 container mx-auto">
       <div className="relative mt-52">
         <div className="bg-violet-600 rounded h-56 blur-3xl w-1/2 mx-auto"></div>
         <div className="absolute top-0 left-1/5 md:left-96">

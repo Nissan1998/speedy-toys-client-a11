@@ -1,50 +1,64 @@
 import React, { useContext, useState } from "react";
 import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import Footer from "../Footer/Footer";
 import { AuthContext } from "../../Routes/AuthProvider/AuthProvider";
-import app from "../../Firebase/Firebase.config";
+import { updateProfile } from "firebase/auth";
 
-const Login = () => {
+const Register = () => {
+  const { createUser } = useContext(AuthContext);
+  const [accepted, setAccepted] = useState(false);
+  const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
-  const auth = getAuth(app);
-  const googleProvider = new GoogleAuthProvider();
 
-  const handleGoogleSignIn = () => {
-    signInWithPopup(auth, googleProvider)
-      .then((result) => {
-        const user = result.user;
-        navigate(from, { replace: true });
-        console.log(user);
-      })
-      .catch((error) => {
-        setError(error.message);
-      });
-  };
-  //GitHub SignIn Process--------->
-
-  const { signIn } = useContext(AuthContext);
+  /*
+  Navigate to Homepage............. 
+  */
   const navigate = useNavigate();
   const location = useLocation();
   console.log("login page location", location);
   const from = location.state?.from?.pathname || "/";
 
-  const handleLogin = (event) => {
+  //Registration process...............................
+  const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
+    const name = form.name.value;
+    const photoUrl = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
-    setError("");
-    signIn(email, password)
+
+    if (password.length < 6) {
+      return setError("PassWord must have 6 letter");
+    }
+
+    console.log(name, photoUrl, email, password);
+
+    createUser(email, password)
       .then((result) => {
-        const loggedUser = result.user;
-        console.log(loggedUser);
+        const newUser = result.user;
+        handleUserData(result.user, name, photoUrl);
+        setSuccess("Account Successfully Created");
         navigate(from, { replace: true });
+        setError("");
       })
       .catch((error) => {
         console.log(error);
+        setError(error.message);
+        setSuccess("");
+      });
+  };
+
+  const handleUserData = (user, name, photoURL) => {
+    updateProfile(user, {
+      displayName: name,
+      photoURL: photoURL,
+    })
+      .then(() => {
+        console.log("user name updated");
+      })
+      .catch((error) => {
+        console.log(error.message);
         setError(error.message);
       });
   };
@@ -54,13 +68,46 @@ const Login = () => {
         <Header></Header>
       </div>
       <div>
-        <div className="flex justify-center items-center h-[100vh] bg-gray-300 ">
+        <div className="flex justify-center items-center h-full bg-gray-300 ">
           <div className="w-full max-w-lg">
             <form
-              onSubmit={handleLogin}
+              onSubmit={handleRegister}
               className="bg-white rounded-xl shadow-2xl px-8 pt-6 pb-8 mb-4"
             >
-              <h2 className="text-2xl mb-4 text-center font-bold">Login</h2>
+              <h2 className="text-2xl mb-4 text-center font-bold">
+                Please Register !
+              </h2>
+              <div className="mb-4">
+                <label
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                  htmlFor="name"
+                >
+                  Name
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  type="text"
+                  id="name"
+                  required
+                  name="name"
+                  placeholder="Enter your Name"
+                />
+              </div>
+              <div className="mb-4">
+                <label
+                  className="block text-gray-700 text-sm font-bold mb-2"
+                  htmlFor="text"
+                >
+                  Photo
+                </label>
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="phot"
+                  type="text"
+                  name="photo"
+                  placeholder="Enter your Photo URL"
+                />
+              </div>
               <div className="mb-4">
                 <label
                   className="block text-gray-700 text-sm font-bold mb-2"
@@ -72,6 +119,8 @@ const Login = () => {
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="email"
                   type="email"
+                  required
+                  name="email"
                   placeholder="Enter your email"
                 />
               </div>
@@ -86,6 +135,8 @@ const Login = () => {
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="password"
                   type="password"
+                  required
+                  name="password"
                   placeholder="Enter your password"
                 />
               </div>
@@ -98,15 +149,15 @@ const Login = () => {
                 </button>
               </div>
               <div className="mx-auto mt-2 w-2/3">
-                <Link to="/register">
-                  Do not have an account?
-                  <button className="btn-link">Register....</button>
+                <Link to="/login">
+                  All ready have an account?
+                  <button className="btn-link">Login....</button>
                 </Link>
               </div>
               <div className="divider">OR</div>
               <div className=" w-32 mx-auto">
                 <span>Continue with </span>
-                <button onClick={handleGoogleSignIn}>
+                <button>
                   <img
                     style={{ width: 25 }}
                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/706px-Google_%22G%22_Logo.svg.png"
@@ -123,4 +174,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
