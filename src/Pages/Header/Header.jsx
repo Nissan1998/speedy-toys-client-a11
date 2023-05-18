@@ -1,10 +1,16 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+import React, { useContext } from "react";
 import { Link, Navigate } from "react-router-dom";
 import logo from "../../assets/weblogo.png";
 import BannerText from "../BannerText/BannerText";
+import { AuthContext } from "../../Routes/AuthProvider/AuthProvider";
 const Header = ({ bgImage }) => {
   // https://wallpaperaccess.com/full/7730137.jpg
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    return logOut();
+  };
+  console.log(user);
   return (
     <div
       style={{
@@ -42,12 +48,16 @@ const Header = ({ bgImage }) => {
               <li>
                 <Link to="/alltoys">All Toys</Link>
               </li>
-              <li>
-                <Link to="/mytoys">My Toys</Link>
-              </li>
-              <li>
-                <Link to="addtoy">Add a Toy</Link>
-              </li>
+              {user && (
+                <li>
+                  <Link to="/mytoys">My Toys</Link>
+                </li>
+              )}
+              {user && (
+                <li>
+                  <Link to="addtoy">Add a Toy</Link>
+                </li>
+              )}
               <li>
                 <Link to="blogs">Blogs</Link>
               </li>
@@ -60,7 +70,7 @@ const Header = ({ bgImage }) => {
           />
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal space-x-2 px-1">
+          <ul className="menu menu-horizontal space-x-1 px-1">
             <li>
               <Link
                 className={`${
@@ -86,28 +96,32 @@ const Header = ({ bgImage }) => {
               </Link>
             </li>
             <li>
-              <Link
-                className={`${
-                  bgImage
-                    ? "bg-gradient-to-r hover:btn-accent from-purple-500 to-pink-500  text-white"
-                    : "text-white"
-                }`}
-                to="/mytoys"
-              >
-                My Toys
-              </Link>
+              {user && (
+                <Link
+                  className={`${
+                    bgImage
+                      ? "bg-gradient-to-r hover:btn-accent from-purple-500 to-pink-500  text-white"
+                      : "text-white"
+                  }`}
+                  to="/mytoys"
+                >
+                  My Toys
+                </Link>
+              )}
             </li>
             <li>
-              <Link
-                className={`${
-                  bgImage
-                    ? "bg-gradient-to-r hover:btn-accent from-purple-500 to-pink-500  text-white"
-                    : "text-white"
-                }`}
-                to="/"
-              >
-                Add A Toy
-              </Link>
+              {user && (
+                <Link
+                  className={`${
+                    bgImage
+                      ? "bg-gradient-to-r hover:btn-accent from-purple-500 to-pink-500  text-white"
+                      : "text-white"
+                  }`}
+                  to="/"
+                >
+                  Add A Toy
+                </Link>
+              )}
             </li>
             <li>
               <Link
@@ -124,12 +138,22 @@ const Header = ({ bgImage }) => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link
-            to={bgImage ? "login" : "/login"}
-            className="btn cursor-pointer bg-gradient-to-r hover:btn-accent from-purple-500 to-pink-500  "
-          >
-            Login
-          </Link>
+          {user && (
+            <Link
+              onClick={handleLogOut}
+              className="btn cursor-pointer bg-gradient-to-r hover:btn-accent from-purple-500 to-pink-500  "
+            >
+              LogOut
+            </Link>
+          )}
+          {!user && (
+            <Link
+              to={bgImage ? "login" : "/login"}
+              className="btn cursor-pointer bg-gradient-to-r hover:btn-accent from-purple-500 to-pink-500  "
+            >
+              Login
+            </Link>
+          )}
         </div>
       </div>
       <div>{bgImage && <BannerText></BannerText>}</div>
