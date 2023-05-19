@@ -32,7 +32,7 @@ const Countdown = ({ targetDate }) => {
   };
 
   return (
-    <div className="flex justify-center align-middle space-x-5 bg-orange-500 md:w-1/2 mx-auto rounded-2xl text-white">
+    <div className="flex justify-center align-middle space-x-5 p-2 bg-orange-500 md:w-1/2 mx-auto rounded-2xl text-white">
       {timeLeft.days > 0 && (
         <div className="text-center m-0">
           <div className="text-[50px] font-bold bg-">

@@ -1,11 +1,11 @@
 import React from "react";
 import AOS from "aos";
 
-AOS.init({ duration: 1000 });
 const ToysGallery = () => {
+  AOS.init({ duration: 1500 });
   return (
     <div>
-      <h3 className="text-center text-4xl font-bold my-10">
+      <h3 className="text-center underline text-yellow-700 text-4xl font-bold my-10">
         Customer Favorites
       </h3>
       <div className="grid grid-cols-3 gap-3 container mx-auto ">
