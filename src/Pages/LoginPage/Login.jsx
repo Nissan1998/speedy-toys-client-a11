@@ -5,8 +5,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { AuthContext } from "../../Routes/AuthProvider/AuthProvider";
 import app from "../../Firebase/Firebase.config";
+import useTitle from "../../CustomHook/useTitle";
 
 const Login = () => {
+  useTitle("Login");
   const [error, setError] = useState("");
   const auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();

@@ -4,8 +4,10 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Footer from "../Footer/Footer";
 import { AuthContext } from "../../Routes/AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import useTitle from "../../CustomHook/useTitle";
 
 const Register = () => {
+  useTitle("Register");
   const { createUser } = useContext(AuthContext);
   const [accepted, setAccepted] = useState(false);
   const [success, setSuccess] = useState("");

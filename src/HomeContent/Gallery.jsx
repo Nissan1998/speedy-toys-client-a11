@@ -8,7 +8,7 @@ const Gallery = () => {
   return (
     <div className=" rounded-2xl container mx-auto ">
       <div className="md:w-[1000px] mx-auto ">
-        <h1 className="text-center underline text-yellow-700 pt-5  text-5xl font-bold">
+        <h1 className="text-center underline text-yellow-700 pt-5  md:text-5xl font-bold">
           Speedy Toys
         </h1>
         <div className="flex justify-center items-center ">
