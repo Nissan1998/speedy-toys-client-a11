@@ -29,6 +29,11 @@ const Footer = () => {
               </Link>
             </div>
           </div>
+          <p>Contact with Us +8801629880885</p>
+          <p>
+            {" "}
+            <span className="font-bold">Address:-</span> Dhanmondhi,Dhaka1-205
+          </p>
           <p>Copyright © 2023 - All right reserved</p>
         </div>
         <div>
