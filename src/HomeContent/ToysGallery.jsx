@@ -2,14 +2,14 @@ import React from "react";
 import AOS from "aos";
 
 const ToysGallery = () => {
-  AOS.init({ duration: 1200 });
+  AOS.init();
   return (
     <div>
       <h3 className="text-center underline text-yellow-700 md:text-4xl font-bold my-10">
         Customer Favorites
       </h3>
       <div className="grid grid-cols-3 gap-3 container mx-auto ">
-        <div data-aos="flip-down">
+        <div data-aos="zoom-in">
           <div className="card card-compact  bg-base-100 shadow-xl">
             <figure>
               <img
@@ -19,7 +19,7 @@ const ToysGallery = () => {
             </figure>
           </div>
         </div>
-        <div data-aos="flip-down">
+        <div data-aos="zoom-in">
           <div className="card card-compact  bg-base-100 shadow-xl">
             <figure>
               <img
@@ -29,7 +29,7 @@ const ToysGallery = () => {
             </figure>
           </div>
         </div>
-        <div data-aos="flip-down">
+        <div data-aos="zoom-in">
           <div className="card card-compact  bg-base-100 shadow-xl">
             <figure>
               <img
@@ -39,7 +39,7 @@ const ToysGallery = () => {
             </figure>
           </div>
         </div>
-        <div data-aos="flip-up">
+        <div data-aos="zoom-in">
           <div className="card card-compact bg-base-100  shadow-xl">
             <figure>
               <img
@@ -49,7 +49,7 @@ const ToysGallery = () => {
             </figure>
           </div>
         </div>
-        <div data-aos="flip-up">
+        <div data-aos="zoom-in">
           <div className="card card-compact bg-base-100 shadow-xl">
             <figure>
               <img

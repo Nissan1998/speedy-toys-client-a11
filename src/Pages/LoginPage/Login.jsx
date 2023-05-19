@@ -16,13 +16,12 @@ const Login = () => {
   const handleGoogleSignIn = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
+        setError("");
         const user = result.user;
         navigate(from, { replace: true });
         console.log(user);
       })
-      .catch((error) => {
-        setError(error.message);
-      });
+      .catch((error) => {});
   };
   //GitHub SignIn Process--------->
 
@@ -49,10 +48,11 @@ const Login = () => {
         console.log(error);
         setError(error.message);
         if (error.message == "Firebase: Error (auth/user-not-found).") {
-          setError("The User is Not Exist");
-        }
-        if (error.message) {
-          setError("The password you given that is Wrong");
+          return setError("The User is Not Exist");
+        } else if (error.message == "Firebase: Error (auth/invalid-email).") {
+          setError("");
+        } else {
+          setError("Your Given Password is Wrong");
         }
       });
   };
