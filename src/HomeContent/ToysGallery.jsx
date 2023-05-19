@@ -4,66 +4,70 @@ import AOS from "aos";
 AOS.init({ duration: 1000 });
 const ToysGallery = () => {
   return (
-    <div className="container mx-auto">
-      <h2 className="text-center text-4xl mt-5 mb-5">Super Car Toys</h2>
-      <div className="space-y-11 grid grid-cols-3  mx-auto  ">
-        <div
-          className="w-1/2 rounded-3xl container mx-auto h-[500px] text-center bg-gray-400"
-          data-aos="fade-right"
-        >
-          <img
-            className="w-full h-full"
-            src="https://i5.walmartimages.com/asr/8323d4cf-8850-4c18-9790-967289f1813c.71f63b135faa507c84e5209906a88be3.jpeg"
-            alt=""
-          />
+    <div>
+      <h3 className="text-center text-4xl font-bold my-10">
+        Customer Favorites
+      </h3>
+      <div className="grid grid-cols-3 gap-3 container mx-auto ">
+        <div data-aos="flip-down">
+          <div className="card card-compact  bg-base-100 shadow-xl">
+            <figure>
+              <img
+                src="https://images-americanas.b2w.io/produtos/4299907124/imagens/miniatura-lamborghini-terzo-millennio-verde-bburago-1-24/4299907124_3_large.jpg"
+                alt="Shoes"
+              />
+            </figure>
+          </div>
         </div>
-        <div
-          className="w-1/2 rounded-3xl container mx-auto h-0 text-center bg-gray-400"
-          data-aos="fade-left"
-        >
-          <img
-            src="https://i.ebayimg.com/images/g/iasAAOSwQplgu0ZX/s-l1600.jpg"
-            alt=""
-          />
+        <div data-aos="flip-down">
+          <div className="card card-compact  bg-base-100 shadow-xl">
+            <figure>
+              <img
+                src="https://i5.walmartimages.com/asr/6f02ecdd-3a3d-4786-a5d8-1e1c133d2f4d.a56f55cbe9dc371ed12107a3a6664038.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+                alt="Shoes"
+              />
+            </figure>
+          </div>
         </div>
-        <div
-          className="w-1/2 rounded-3xl container mx-auto h-[500px] text-center bg-gray-400"
-          data-aos="fade-right"
-        >
-          <img
-            className="w-full h-full"
-            src="https://rukminim1.flixcart.com/image/416/416/k5pn6vk0/vehicle-pull-along/9/f/p/lamborghini-centenario-1-32-scale-diecast-metal-alloy-pull-back-original-imafgtwjp7mnnahh.jpeg?q=70"
-            alt=""
-          />
+        <div data-aos="flip-down">
+          <div className="card card-compact  bg-base-100 shadow-xl">
+            <figure>
+              <img
+                src="https://cdn.shopify.com/s/files/1/2227/5577/products/Licensed-1-24-Mini-Electric-RC-Cars-4CH-Remote-Control-Toys-Machines-On-Th-Radio-Controlled.jpg?v=1502356456"
+                alt="Shoes"
+              />
+            </figure>
+          </div>
         </div>
-        <div
-          className="w-1/2 rounded-3xl container mx-auto h-0 text-center bg-gray-400"
-          data-aos="fade-left"
-        >
-          <img
-            src="https://cf.shopee.com.my/file/94cbdeb2e1894d9ada1973a0458631e6"
-            alt=""
-          />
+        <div data-aos="flip-up">
+          <div className="card card-compact bg-base-100  shadow-xl">
+            <figure>
+              <img
+                src="https://i5.walmartimages.ca/images/Enlarge/519/289/6000202519289.jpg"
+                alt="Shoes"
+              />
+            </figure>
+          </div>
         </div>
-        <div
-          className="w-1/2 rounded-3xl container mx-auto h-[500px] text-center bg-gray-400"
-          data-aos="fade-right"
-        >
-          <img
-            className="w-full h-full"
-            src="https://i5.walmartimages.com/asr/dd4102fd-d82c-4b77-bf4e-b7f5508c43d7.13bd9d89a4486fcec9345a770af324be.jpeg"
-            alt=""
-          />
+        <div data-aos="flip-up">
+          <div className="card card-compact bg-base-100 shadow-xl">
+            <figure>
+              <img
+                src="https://cdn.shopify.com/s/files/1/0249/9910/0502/products/Lamborghini-Aventador-SV_Green_1_700x700.jpg?v=1628479306"
+                alt="Shoes"
+              />
+            </figure>
+          </div>
         </div>
-        <div
-          className="w-1/2 rounded-3xl container mx-auto h-[500px] text-center bg-gray-400"
-          data-aos="fade-left"
-        >
-          <img
-            className="w-full h-full"
-            src="https://images-americanas.b2w.io/produtos/4299907124/imagens/miniatura-lamborghini-terzo-millennio-verde-bburago-1-24/4299907124_3_large.jpg"
-            alt=""
-          />
+        <div data-aos="flip-up">
+          <div className="card card-compact  bg-base-100 shadow-xl">
+            <figure>
+              <img
+                src="https://cdn.shopify.com/s/files/1/0299/4336/5731/files/kids_ride_on_electric_cars.jpg?v=1642306283"
+                alt="Shoes"
+              />
+            </figure>
+          </div>
         </div>
       </div>
     </div>

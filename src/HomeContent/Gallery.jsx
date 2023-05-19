@@ -6,7 +6,7 @@ import car3 from "../assets/18523-traffic-car-racing.json";
 
 const Gallery = () => {
   return (
-    <div className=" bg-sky-200 rounded-2xl container mx-auto ">
+    <div className=" rounded-2xl container mx-auto ">
       <div className="md:w-[1000px] mx-auto ">
         <h1 className="text-center text-yellow-700 pt-5  text-5xl font-bold">
           Speedy Toys Gallery

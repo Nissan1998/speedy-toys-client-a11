@@ -4,6 +4,7 @@ import Footer from "../Pages/Footer/Footer";
 import Gallery from "./Gallery";
 import LazyLoad from "react-lazyload";
 import ToysGallery from "./ToysGallery";
+import DiscountCountDown from "./CountDown/DiscountCountDown";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
         <h1>This is home content</h1>
 
         <Gallery></Gallery>
+        <DiscountCountDown></DiscountCountDown>
         <Footer></Footer>
       </LazyLoad>
     </div>
