@@ -29,12 +29,12 @@ const Footer = () => {
               </Link>
             </div>
           </div>
-          <p>Contact with Us +8801629880885</p>
+          <p>Contact:- +8801629880885</p>
           <p>
             {" "}
-            <span className="font-bold">Address:-</span> Dhanmondhi,Dhaka1-205
+            <span className="font-bold">Address:-</span> Dhanmondhi,Dhaka-1205
           </p>
-          <p>Copyright © 2023 - All right reserved</p>
+          <p>Copyright © 2023 - All right reserved by speedy toys</p>
         </div>
         <div>
           <div className="grid grid-flow-col gap-4">

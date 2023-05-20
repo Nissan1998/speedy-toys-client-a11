@@ -21,7 +21,7 @@ const DiscountCountDown = () => {
         <Countdown targetDate="2023-12-31T23:59:59"></Countdown>
       </div>
       <div className="absolute left-[140px]  md:left-[620px] mt-4">
-        <button className="btn bg-white font-bold   text-black">
+        <button className="btn bg-white font-bold hover:text-white  text-black">
           Shop Now
         </button>
       </div>
