@@ -8,7 +8,7 @@ const ToysGallery = () => {
       <h3 className="text-center underline text-yellow-700 md:text-4xl font-bold my-10">
         Customer Favorites
       </h3>
-      <div className="grid grid-cols-3 gap-3 container mx-auto ">
+      <div className="grid md:grid-cols-3 gap-3 container mx-auto ">
         <div data-aos="zoom-in">
           <div className="card card-compact  bg-base-100 shadow-xl">
             <figure>

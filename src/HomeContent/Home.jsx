@@ -9,6 +9,7 @@ import PhotoGallery from "./photoGallery";
 import useTitle from "../CustomHook/useTitle";
 import banner from "../assets/HomeBanner.jpg";
 import { AuthContext } from "../Routes/AuthProvider/AuthProvider";
+import SubCategoryCards from "./CategoryCards/SubCategoryCards";
 // https://wallpaperaccess.com/full/7730137.jpg
 
 const Home = () => {
@@ -23,6 +24,7 @@ const Home = () => {
     <div>
       <LazyLoad>
         <Header bgImage={banner}></Header>
+        <SubCategoryCards></SubCategoryCards>
         <PhotoGallery></PhotoGallery>
         <ToysGallery></ToysGallery>
 

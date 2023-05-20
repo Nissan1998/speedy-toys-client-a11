@@ -5,6 +5,7 @@ import { RouterProvider } from "react-router-dom";
 import router from "./Routes/Router";
 import AuthProvider from "./Routes/AuthProvider/AuthProvider";
 import "aos/dist/aos.css";
+import "react-tabs/style/react-tabs.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

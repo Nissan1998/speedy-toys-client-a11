@@ -4,10 +4,12 @@ import Footer from "../Footer/Footer";
 import { AuthContext } from "../../Routes/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import useTitle from "../../CustomHook/useTitle";
 
 const MySwal = withReactContent(Swal);
 
 function AddAToy() {
+  useTitle("AddToy");
   const { user, loading } = useContext(AuthContext);
   if (loading) {
     return (
