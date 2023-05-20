@@ -4,12 +4,20 @@ import CategoryCard from "./CategoryCard";
 
 const SubCategoryCards = () => {
   const [toys, setToys] = useState([]);
-  console.log(toys);
+  const [category, setCategory] = useState([]);
+
   useEffect(() => {
     fetch("http://localhost:5000/alltoys")
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);
+  const handleCategory = (category) => {
+    const categories = toys.filter(
+      (toy) => toy.subCategory.toLowerCase() === category
+    );
+    setCategory(categories);
+    console.log(categories);
+  };
   return (
     <div>
       <Tabs className="text-center">
@@ -29,9 +37,24 @@ const SubCategoryCards = () => {
           <Tabs>
             <TabList>
               <Tab style={{ borderRadius: "5px" }}>All Cars</Tab>
-              <Tab style={{ borderRadius: "5px" }}>Sports Cars</Tab>
-              <Tab style={{ borderRadius: "5px" }}>Racing Cars</Tab>
-              <Tab style={{ borderRadius: "5px" }}>Construction Cars</Tab>
+              <Tab
+                onClick={() => handleCategory("sports")}
+                style={{ borderRadius: "5px" }}
+              >
+                Sports Cars
+              </Tab>
+              <Tab
+                onClick={() => handleCategory("racing")}
+                style={{ borderRadius: "5px" }}
+              >
+                Racing Cars
+              </Tab>
+              <Tab
+                onClick={() => handleCategory("truck")}
+                style={{ borderRadius: "5px" }}
+              >
+                Construction Cars
+              </Tab>
             </TabList>
             <TabPanel>
               <div className="grid md:grid-cols-3 mt-5">
@@ -41,13 +64,25 @@ const SubCategoryCards = () => {
               </div>
             </TabPanel>
             <TabPanel>
-              <p style={{ color: "green" }}>sport</p>
+              <div className="grid md:grid-cols-3 mt-5">
+                {category.map((toy) => (
+                  <CategoryCard key={toy._id} toy={toy}></CategoryCard>
+                ))}
+              </div>
             </TabPanel>
             <TabPanel>
-              <p style={{ color: "green" }}>Rac</p>
+              <div className="grid md:grid-cols-3 mt-5">
+                {category.map((toy) => (
+                  <CategoryCard key={toy._id} toy={toy}></CategoryCard>
+                ))}
+              </div>
             </TabPanel>
             <TabPanel>
-              <p style={{ color: "green" }}>Cons</p>
+              <div className="grid md:grid-cols-3 mt-5">
+                {category.map((toy) => (
+                  <CategoryCard key={toy._id} toy={toy}></CategoryCard>
+                ))}
+              </div>
             </TabPanel>
           </Tabs>
         </TabPanel>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Rating } from "@smastrom/react-rating";
+import { Link } from "react-router-dom";
 
 const CategoryCard = ({ toy }) => {
   // pic,name,price,rating,view details button
@@ -18,9 +19,12 @@ const CategoryCard = ({ toy }) => {
             </div>
           </div>
           <div className="card-actions justify-center">
-            <button className="btn bg-gradient-to-r from-purple-400">
+            <Link
+              to={`/detail/${toy._id}`}
+              className="btn bg-gradient-to-r from-gray-950 border-e-8 border-t-8 to-sky-400"
+            >
               View Details
-            </button>
+            </Link>
           </div>
         </div>
       </div>
