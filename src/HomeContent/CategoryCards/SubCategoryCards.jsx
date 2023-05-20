@@ -28,10 +28,10 @@ const SubCategoryCards = () => {
         <TabPanel style={{ fontSize: "20px", margin: "20px" }}>
           <Tabs>
             <TabList>
-              <Tab style={{ borderRadius: "5px" }}>All Car</Tab>
-              <Tab style={{ borderRadius: "5px" }}>Sports Car</Tab>
-              <Tab style={{ borderRadius: "5px" }}>Racing Car</Tab>
-              <Tab style={{ borderRadius: "5px" }}>Construction Car</Tab>
+              <Tab style={{ borderRadius: "5px" }}>All Cars</Tab>
+              <Tab style={{ borderRadius: "5px" }}>Sports Cars</Tab>
+              <Tab style={{ borderRadius: "5px" }}>Racing Cars</Tab>
+              <Tab style={{ borderRadius: "5px" }}>Construction Cars</Tab>
             </TabList>
             <TabPanel>
               <div className="grid md:grid-cols-3 mt-5">
