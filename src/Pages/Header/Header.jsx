@@ -7,6 +7,7 @@ import { AuthContext } from "../../Routes/AuthProvider/AuthProvider";
 import LazyLoad from "react-lazyload";
 const Header = ({ bgImage }) => {
   const { user, logOut } = useContext(AuthContext);
+
   const handleLogOut = () => {
     return logOut();
   };

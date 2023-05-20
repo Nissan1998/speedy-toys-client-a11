@@ -2,6 +2,10 @@ import React, { useContext } from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { AuthContext } from "../../Routes/AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
 
 function AddAToy() {
   const { user, loading } = useContext(AuthContext);
@@ -23,7 +27,17 @@ function AddAToy() {
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((result) => console.log(result));
+      .then((result) => {
+        if (result) {
+          return MySwal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Your Toy is Uploaded",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
   };
 
   return (
