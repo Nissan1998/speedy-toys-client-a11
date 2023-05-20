@@ -5,7 +5,7 @@ import Error from "../assets/64553-404-error.json";
 
 const ErrorPage = () => {
   const { error, status } = useRouteError();
-  console.log(error.message);
+
   return (
     <div>
       <div className="w-full h-[500px]  flex justify-center items-center ">

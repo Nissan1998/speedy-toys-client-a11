@@ -1,13 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import { AuthContext } from "../../Routes/AuthProvider/AuthProvider";
 
 function AddAToy() {
+  const { user, loading } = useContext(AuthContext);
+  if (loading) {
+    return (
+      <p className=" text-red-600 text-center text-2xl mt-80">Loading......</p>
+    );
+  }
+  console.log(user);
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
-    console.log(data);
+    fetch("http://localhost:5000/addToy", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => console.log(result));
   };
 
   return (
@@ -67,9 +83,11 @@ function AddAToy() {
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="sellerName"
                 type="text"
+                defaultValue={user.displayName}
                 placeholder="Enter seller name"
                 name="sellerName"
                 required
+                readOnly
               />
             </div>
             <div className="mb-4">
@@ -83,9 +101,11 @@ function AddAToy() {
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="sellerEmail"
                 type="email"
+                defaultValue={user.email}
                 placeholder="Enter seller email"
                 name="sellerEmail"
                 required
+                readOnly
               />
             </div>
             <div className="mb-4">
@@ -175,7 +195,7 @@ function AddAToy() {
               className=" bg-gradient-to-t from-red-400 to-slate-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="submit"
             >
-              Submit
+              Upload
             </button>
           </div>
         </form>
