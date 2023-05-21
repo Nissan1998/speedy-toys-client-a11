@@ -22,7 +22,7 @@ function AddAToy() {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
     // https://speedy-toys.web.app/
-    fetch("http://localhost:5000/addtoy", {
+    fetch("https://speedy-toys-server.vercel.app/addtoy", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

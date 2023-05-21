@@ -7,7 +7,7 @@ const SubCategoryCards = () => {
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/categories")
+    fetch("https://speedy-toys-server.vercel.app/categories")
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);
