@@ -7,7 +7,7 @@ const SubCategoryCards = () => {
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/alltoys")
+    fetch("https://speedy-toys-server.vercel.app/alltoys")
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);
@@ -57,28 +57,28 @@ const SubCategoryCards = () => {
               </Tab>
             </TabList>
             <TabPanel>
-              <div className="grid md:grid-cols-3 mt-5">
+              <div className="grid md:grid-cols-3 gap-2 mt-5">
                 {toys.map((toy) => (
                   <CategoryCard key={toy._id} toy={toy}></CategoryCard>
                 ))}
               </div>
             </TabPanel>
             <TabPanel>
-              <div className="grid md:grid-cols-3 mt-5">
+              <div className="grid md:grid-cols-3 h-auto mt-5">
                 {category.map((toy) => (
                   <CategoryCard key={toy._id} toy={toy}></CategoryCard>
                 ))}
               </div>
             </TabPanel>
             <TabPanel>
-              <div className="grid md:grid-cols-3 mt-5">
+              <div className="grid md:grid-cols-3 h-auto mt-5">
                 {category.map((toy) => (
                   <CategoryCard key={toy._id} toy={toy}></CategoryCard>
                 ))}
               </div>
             </TabPanel>
             <TabPanel>
-              <div className="grid md:grid-cols-3 mt-5">
+              <div className="grid md:grid-cols-3 h-auto mt-5">
                 {category.map((toy) => (
                   <CategoryCard key={toy._id} toy={toy}></CategoryCard>
                 ))}

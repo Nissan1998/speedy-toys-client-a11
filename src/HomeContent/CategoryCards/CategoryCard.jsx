@@ -8,7 +8,7 @@ const CategoryCard = ({ toy }) => {
     <div>
       <div className="card h-full card-compact w-96 bg-base-100 shadow-xl">
         <figure>
-          <img src={toy?.photo} alt="Shoes" />
+          <img className="w-44" src={toy?.photo} alt="Shoes" />
         </figure>
         <div className="card-body space-y-1">
           <h2 className="card-title">{toy?.name}</h2>
@@ -18,10 +18,10 @@ const CategoryCard = ({ toy }) => {
               <Rating value={Math.floor(toy.rating)} readOnly></Rating>
             </div>
           </div>
-          <div className="card-actions justify-center">
+          <div className="card-actions justify-center relative">
             <Link
               to={`/detail/${toy._id}`}
-              className="btn bg-gradient-to-r from-gray-950 border-e-8 border-t-8 to-sky-400"
+              className="btn bg-gradient-to-r bottom-0 from-gray-950 border-e-8 border-t-8 to-sky-400"
             >
               View Details
             </Link>
