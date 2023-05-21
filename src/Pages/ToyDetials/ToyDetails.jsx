@@ -39,7 +39,7 @@ const ToyDetails = () => {
             <div className="w-32">
               <Rating value={Math.floor(toy?.rating)} readOnly></Rating>
             </div>
-            <p>Click the button to listen on Spotiwhy app.</p>
+            <p>Click the button back to home</p>
             <div className="card-actions justify-end">
               <Link
                 to="/"
