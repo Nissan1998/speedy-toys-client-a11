@@ -6,6 +6,9 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   const location = useLocation();
+  {
+    user ? "" : confirm("Please Login before View the Details");
+  }
   console.log(location);
   if (loading) {
     return (
@@ -16,6 +19,7 @@ const PrivateRoute = ({ children }) => {
       </>
     );
   }
+
   if (user) {
     return children;
   }
