@@ -7,7 +7,7 @@ const SubCategoryCards = () => {
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
-    fetch("https://speedy-toys-server.vercel.app/alltoys")
+    fetch("http://localhost:5000/categories")
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);
@@ -50,7 +50,7 @@ const SubCategoryCards = () => {
                 Racing Cars
               </Tab>
               <Tab
-                onClick={() => handleCategory("truck")}
+                onClick={() => handleCategory("construction")}
                 style={{ borderRadius: "5px" }}
               >
                 Construction Cars

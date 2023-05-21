@@ -21,7 +21,8 @@ function AddAToy() {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
-    fetch("http://localhost:5000/addToy", {
+    // https://speedy-toys.web.app/
+    fetch("http://localhost:5000/addtoy", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

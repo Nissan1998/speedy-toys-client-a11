@@ -22,7 +22,7 @@ const AllToys = () => {
 
   useTitle("All-Toys");
   useEffect(() => {
-    fetch("https://speedy-toys-server.vercel.app/alltoys")
+    fetch("http://localhost:5000/alltoys")
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, []);

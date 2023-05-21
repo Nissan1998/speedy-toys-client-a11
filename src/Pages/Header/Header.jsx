@@ -56,9 +56,11 @@ const Header = ({ bgImage }) => {
                   </li>
                 )}
 
-                <li>
-                  <Link to="addatoy">Add a Toy</Link>
-                </li>
+                {user && (
+                  <li>
+                    <Link to="addatoy">Add a Toy</Link>
+                  </li>
+                )}
 
                 <li>
                   <Link to="/blogs">Blogs</Link>
@@ -111,18 +113,20 @@ const Header = ({ bgImage }) => {
                   </Link>
                 )}
               </li>
-              <li>
-                <Link
-                  className={`${
-                    bgImage
-                      ? "bg-gradient-to-r hover:btn-accent from-purple-500 to-pink-500  text-white"
-                      : "text-white"
-                  }`}
-                  to="/addatoy"
-                >
-                  Add A Toy
-                </Link>
-              </li>
+              {user && (
+                <li>
+                  <Link
+                    className={`${
+                      bgImage
+                        ? "bg-gradient-to-r hover:btn-accent from-purple-500 to-pink-500  text-white"
+                        : "text-white"
+                    }`}
+                    to="/addatoy"
+                  >
+                    Add A Toy
+                  </Link>
+                </li>
+              )}
               <li>
                 <Link
                   className={`${
