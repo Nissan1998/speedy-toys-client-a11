@@ -66,7 +66,7 @@ const AllToys = () => {
                     <td className="py-2 px-4">{toy.quantity}</td>
                     <td className="py-2 px-4">
                       <Link
-                        to={`/detail/${toy._id}`}
+                        to={`/details/${toy._id}`}
                         className="btn bg-gradient-to-r from-gray-950 border-e-8 border-t-8 to-sky-400"
                       >
                         View Details
