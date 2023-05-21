@@ -1,8 +1,8 @@
 import React from "react";
 import AOS from "aos";
 
+AOS.init(1200);
 const ToysGallery = () => {
-  AOS.init();
   return (
     <div>
       <h3 className="text-center underline text-yellow-700 md:text-4xl font-bold my-10">

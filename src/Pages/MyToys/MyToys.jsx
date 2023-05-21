@@ -22,7 +22,7 @@ const MyToys = () => {
   const handleDelete = (id) => {
     const proceed = confirm("Are You Sure you want to Delete ?");
     if (proceed) {
-      fetch(`http://localhost:5000/myToys/${id}`, {
+      fetch(`https://speedy-toys-server.vercel.app/myToys/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

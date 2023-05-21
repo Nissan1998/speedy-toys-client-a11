@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Tabs, TabList, Tab, TabPanel } from "react-tabs";
 import CategoryCard from "./CategoryCard";
+import LazyLoad from "react-lazyload";
 
 const SubCategoryCards = () => {
   const [toys, setToys] = useState([]);
@@ -56,34 +57,36 @@ const SubCategoryCards = () => {
                 Construction Cars
               </Tab>
             </TabList>
-            <TabPanel>
-              <div className="grid md:grid-cols-3 gap-2 mt-5">
-                {toys.map((toy) => (
-                  <CategoryCard key={toy._id} toy={toy}></CategoryCard>
-                ))}
-              </div>
-            </TabPanel>
-            <TabPanel>
-              <div className="grid md:grid-cols-3 h-auto mt-5">
-                {category.map((toy) => (
-                  <CategoryCard key={toy._id} toy={toy}></CategoryCard>
-                ))}
-              </div>
-            </TabPanel>
-            <TabPanel>
-              <div className="grid md:grid-cols-3 h-auto mt-5">
-                {category.map((toy) => (
-                  <CategoryCard key={toy._id} toy={toy}></CategoryCard>
-                ))}
-              </div>
-            </TabPanel>
-            <TabPanel>
-              <div className="grid md:grid-cols-3 h-auto mt-5">
-                {category.map((toy) => (
-                  <CategoryCard key={toy._id} toy={toy}></CategoryCard>
-                ))}
-              </div>
-            </TabPanel>
+            <LazyLoad>
+              <TabPanel>
+                <div className="grid md:grid-cols-3 gap-2 mt-5">
+                  {toys.map((toy) => (
+                    <CategoryCard key={toy._id} toy={toy}></CategoryCard>
+                  ))}
+                </div>
+              </TabPanel>
+              <TabPanel>
+                <div className="grid md:grid-cols-3 h-auto mt-5">
+                  {category.map((toy) => (
+                    <CategoryCard key={toy._id} toy={toy}></CategoryCard>
+                  ))}
+                </div>
+              </TabPanel>
+              <TabPanel>
+                <div className="grid md:grid-cols-3 h-auto mt-5">
+                  {category.map((toy) => (
+                    <CategoryCard key={toy._id} toy={toy}></CategoryCard>
+                  ))}
+                </div>
+              </TabPanel>
+              <TabPanel>
+                <div className="grid md:grid-cols-3 h-auto mt-5">
+                  {category.map((toy) => (
+                    <CategoryCard key={toy._id} toy={toy}></CategoryCard>
+                  ))}
+                </div>
+              </TabPanel>
+            </LazyLoad>
           </Tabs>
         </TabPanel>
       </Tabs>
