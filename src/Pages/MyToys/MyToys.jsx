@@ -16,7 +16,9 @@ const MyToys = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/myToys/${user?.email}?sort=${asc ? "asc" : "desc"}`
+      `https://speedy-toys-server.vercel.app/myToys/${user?.email}?sort=${
+        asc ? "asc" : "desc"
+      }`
     )
       .then((res) => res.json())
       .then((data) => setMyToys(data));

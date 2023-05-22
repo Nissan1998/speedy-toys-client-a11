@@ -209,7 +209,8 @@ function AddAToy() {
           </div>
           <div className="flex items-center justify-center">
             <button
-              className=" font-bold text-white text-xl text-center  bg-gradient-to-r  from-slate-950 to-sky-400 border-e-8 border-s-8 btn mb-2 flex w-44 mx-auto "
+              className=" font-bold text-white text-xl text-center  bg-gradient-to-r  from-slate-950 to-sky-400 border-e-8 border-s-8 btn mb-2 flex w-44 mx-auto 
+              hover:text-yellow-500"
               type="submit"
             >
               Upload
