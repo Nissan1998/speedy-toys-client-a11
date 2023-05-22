@@ -26,7 +26,7 @@ const UpdateDetails = () => {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
     console.log(data);
-    fetch(`http://localhost:5000/updateToy${toy?._id}`, {
+    fetch(`http://localhost:5000/updateToy/${toy?._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

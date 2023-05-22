@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { Rating } from "@smastrom/react-rating";
+import useScrollTop from "../../CustomHook/useScrollTop";
+import useTitle from "../../CustomHook/useTitle";
 
 const ToyDetails = () => {
+  const { pathname } = useLocation();
+  useScrollTop(pathname);
   const { id } = useParams();
   const [toys, setToys] = useState();
   console.log(toys);
   const toy = toys?.find((toy) => toy._id === id);
   console.log(toy);
+  useTitle(`${toy?.name} details`);
 
   useEffect(() => {
     fetch("https://speedy-toys-server.vercel.app/alltoys")

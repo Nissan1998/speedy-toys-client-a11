@@ -5,18 +5,22 @@ import Footer from "../Footer/Footer";
 import { AuthContext } from "../../Routes/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import useTitle from "../../CustomHook/useTitle";
 
 const MySwal = withReactContent(Swal);
-
 const MyToys = () => {
+  useTitle("My Toys");
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState([]);
+  const [asc, setAsc] = useState(true);
 
   useEffect(() => {
-    fetch(`https://speedy-toys-server.vercel.app/myToys/${user?.email}`)
+    fetch(
+      `http://localhost:5000/myToys/${user?.email}?sort=${asc ? "asc" : "desc"}`
+    )
       .then((res) => res.json())
       .then((data) => setMyToys(data));
-  }, [user]);
+  }, [user, asc]);
 
   // (Price, available quantity, Detail description)
   const handleDelete = (id) => {
@@ -48,6 +52,14 @@ const MyToys = () => {
         <Header></Header>
       </div>
       <div className="container mx-auto px-4 py-8">
+        <div className="md:flex justify-end font-bold text-xl text-center">
+          <button
+            onClick={() => setAsc(!asc)}
+            className=" btn bg-gradient-to-r  from-gray-950 border-e-[10px]  to-sky-400 border-s-[10px] border-slate-600 "
+          >
+            {asc ? "Price : High To Low" : "Price : Low TO High"}
+          </button>
+        </div>
         <div className="overflow-x-auto">
           <table className="min-w-full table-auto border-collapse border border-gray-300">
             <thead>

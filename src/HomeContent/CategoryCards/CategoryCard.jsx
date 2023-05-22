@@ -11,7 +11,7 @@ const CategoryCard = ({ toy }) => {
           <img className="w-44" src={toy?.photo} alt="Shoes" />
         </figure>
         <div className="card-body space-y-1">
-          <h2 className="card-title">{toy?.name}</h2>
+          <h2 className="font-bold text-2xl text-center">{toy?.name}</h2>
           <div className="w-28 mx-auto">
             <p>price:- ${toy?.price}</p>
             <div>

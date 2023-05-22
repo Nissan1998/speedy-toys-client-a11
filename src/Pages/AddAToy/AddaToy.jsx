@@ -53,9 +53,9 @@ function AddAToy() {
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full sm:w-1/2 md:w-2/3 lg:w-1/3"
           onSubmit={handleSubmit}
         >
-          <h2 className="text-center font-bold underline text-yellow-700 decoration-wavy text-2xl mb-2">
-            Add Your Toy
-          </h2>
+          <h1 className="font-extrabold text-white text-xl text-center  bg-gradient-to-r  from-slate-950 to-sky-400 border-e-8 border-s-8 btn mb-2 flex w-44 mx-auto rounded-3xl">
+            Add A Toy
+          </h1>
           <div className="grid grid-cols-2 gap-3">
             <div className="mb-4">
               <label
@@ -209,7 +209,7 @@ function AddAToy() {
           </div>
           <div className="flex items-center justify-center">
             <button
-              className=" bg-gradient-to-t from-red-400 to-slate-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className=" font-bold text-white text-xl text-center  bg-gradient-to-r  from-slate-950 to-sky-400 border-e-8 border-s-8 btn mb-2 flex w-44 mx-auto "
               type="submit"
             >
               Upload
