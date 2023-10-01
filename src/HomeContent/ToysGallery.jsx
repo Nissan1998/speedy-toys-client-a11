@@ -1,20 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AOS from "aos";
 
-AOS.init(1200);
 const ToysGallery = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1200 });
+  }, []);
   return (
     <div>
       <h3 className="text-center underline text-yellow-700 md:text-4xl font-bold my-10">
         Customer Favorites
       </h3>
-      <div className="grid md:grid-cols-3 gap-3 container mx-auto ">
-        <div data-aos="zoom-in">
+      <div
+        data-aos="zoom-in"
+        className="grid md:grid-cols-3 gap-3 container mx-auto "
+      >
+        <div>
           <div className="card card-compact  bg-base-100 shadow-xl">
             <figure>
               <img
-                src="https://images-americanas.b2w.io/produtos/4299907124/imagens/miniatura-lamborghini-terzo-millennio-verde-bburago-1-24/4299907124_3_large.jpg"
-                alt="Shoes"
+                className="mt-5 h-96"
+                src="https://bangladeshpost.net/webroot/uploads/featureimage/2020-02/5e4007b549b2a.jpg"
               />
             </figure>
           </div>

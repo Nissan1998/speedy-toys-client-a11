@@ -8,7 +8,7 @@ const CategoryCard = ({ toy }) => {
     <div>
       <div className="card h-full card-compact w-96 bg-base-100 shadow-xl">
         <figure>
-          <img className="w-44" src={toy?.photo} alt="Shoes" />
+          <img className="object-cover h-52" src={toy?.photo} alt="Shoes" />
         </figure>
         <div className="card-body space-y-1">
           <h2 className="font-bold text-2xl text-center">{toy?.name}</h2>

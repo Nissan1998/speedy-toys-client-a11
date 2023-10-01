@@ -27,9 +27,6 @@ const Home = () => {
         <SubCategoryCards></SubCategoryCards>
         <PhotoGallery></PhotoGallery>
         <ToysGallery></ToysGallery>
-
-        <h1>This is home content</h1>
-
         <Gallery></Gallery>
         <DiscountCountDown></DiscountCountDown>
         <Footer></Footer>
