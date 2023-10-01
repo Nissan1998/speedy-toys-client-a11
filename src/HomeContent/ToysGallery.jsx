@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
+import "aos/dist/aos.css";
 
 const ToysGallery = () => {
-  useEffect(() => {
-    AOS.init({ duration: 1200 });
-  }, []);
+  AOS.init({ duration: 2000 });
+  AOS.refresh();
+
   return (
     <div>
       <h3 className="text-center underline text-yellow-700 md:text-4xl font-bold my-10">
